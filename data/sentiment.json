@@ -1,0 +1,50 @@
+[
+  {
+    "state": "Gujarat",
+    "positive": 82,
+    "neutral": 12,
+    "negative": 6,
+    "reviews": 1240,
+    "insight": "Tourists love the vibrant culture and Rann Utsav."
+  },
+  {
+    "state": "Rajasthan",
+    "positive": 88,
+    "neutral": 8,
+    "negative": 4,
+    "reviews": 3450,
+    "insight": "High praise for heritage forts; some mention of summer heat."
+  },
+  {
+    "state": "Goa",
+    "positive": 75,
+    "neutral": 15,
+    "negative": 10,
+    "reviews": 4200,
+    "insight": "Excellent food and beaches, but can feel crowded in peak season."
+  },
+  {
+    "state": "Kerala",
+    "positive": 92,
+    "neutral": 6,
+    "negative": 2,
+    "reviews": 2800,
+    "insight": "Overwhelmingly positive response to backwaters and nature."
+  },
+  {
+    "state": "Assam",
+    "positive": 85,
+    "neutral": 10,
+    "negative": 5,
+    "reviews": 950,
+    "insight": "Great wildlife experiences at Kaziranga; lesser known to mass tourists."
+  },
+  {
+    "state": "Delhi",
+    "positive": 70,
+    "neutral": 15,
+    "negative": 15,
+    "reviews": 5600,
+    "insight": "Amazing historical sites and food, but traffic is a common complaint."
+  }
+]

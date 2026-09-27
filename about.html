@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | YATRA</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .about-header { padding: 120px 0 60px; text-align: center; }
+    .about-header h1 { font-size: 42px; margin-bottom: 24px; font-family: var(--font-heading); }
+    .about-content { max-width: 800px; margin: 0 auto 80px; font-size: 18px; line-height: 1.8; color: var(--text); }
+    .about-content h2 { margin: 40px 0 20px; color: var(--terracotta); font-family: var(--font-heading); }
+    
+    .contact-form { background: var(--paper); padding: 40px; border-radius: var(--radius-md); border: 1px solid var(--border-light); margin-top: 40px; }
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; font-weight: 600; margin-bottom: 8px; }
+    .form-input { width: 100%; padding: 12px; border: 1px solid var(--border-light); border-radius: 4px; font-family: inherit; }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="home.html" class="brand nav-brand">YATRA.</a>
+      <div class="nav-center">
+        <a href="home.html">Stories</a>
+        <a href="delhi.html">Delhi</a>
+        <a href="rajasthan.html">Rajasthan</a>
+        <a href="kerala.html">Kerala</a>
+        <a href="goa.html">Goa</a>
+        <a href="gujarat.html">Gujarat</a>
+        <a href="assam.html">Assam</a>
+      </div>
+      <div class="nav-right">
+        <a href="saved.html" id="savedLink" class="nav-saved-badge">Your Yatra (0)</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="about-header">
+    <div class="container">
+      <h1>About YatraVerse</h1>
+      <p style="color: var(--muted); font-size: 20px;">An interactive India travel discovery platform.</p>
+    </div>
+  </header>
+
+  <div class="container about-content">
+    <p>YatraVerse is an original educational project built for a Semester 3 frontend web development course. It combines the strongest ideas found in modern travel platforms: visual discovery, practical destination guides, itinerary planning, and story-led editorial content.</p>
+    
+    <h2>Project Purpose & Technology</h2>
+    <p>This platform was designed from scratch using <strong>HTML5, CSS3, and JavaScript ES6</strong>. It utilizes DOM manipulation, modules, arrays, objects, and LocalStorage to create a fully interactive experience without a backend database.</p>
+    <ul>
+      <li>LocalStorage for saving trips and reviews</li>
+      <li>Dynamic URL routing for blog reading</li>
+      <li>Custom responsive CSS architecture</li>
+    </ul>
+    
+    <h2>Source and Inspiration Disclosure</h2>
+    <p>YatraVerse is an original educational project. Its feature planning was informed by publicly visible patterns from Incredible India and practical travel-guide websites. The project does not copy their branding, articles, images, code, or exact layouts. All images are sourced from Wikimedia Commons and Unsplash, and all travel information is independently written and designed for this demonstration.</p>
+
+    <div class="contact-form">
+      <h2 style="margin-top: 0;">Get in Touch</h2>
+      <p>Have feedback on this project? Send a message.</p>
+      <form onsubmit="event.preventDefault(); alert('Feedback submitted! Thank you.'); this.reset();">
+        <div class="form-group">
+          <label>Name</label>
+          <input type="text" class="form-input" required>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea class="form-input" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn-primary">Send Message</button>
+      </form>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div><h4 class="brand">YATRA.</h4><p>An India travel blog exploring states through editorial storytelling and data visualization.</p></div>
+        <div><h4>Links</h4><a href="about.html">About & Contact</a><a href="toolkit.html">Travel Toolkit</a></div>
+        <div><h4>Explore</h4><a href="saved.html">Your Yatra</a></div>
+      </div>
+      <p class="footer-copy">&copy; 2026 YATRA. Web Development Final Project.</p>
+    </div>
+  </footer>
+  
+  <script src="js/main.js"></script>
+</body>
+</html>
+
+

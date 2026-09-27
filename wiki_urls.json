@@ -1,0 +1,56 @@
+{
+  "delhi": {
+    "delhi_hero": "https://upload.wikimedia.org/wikipedia/commons/5/5b/India_Gate_in_the_Evening.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "delhi_featured": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Gurudwara_Sisganj_Sahib_Chandni_Chowk_19.jpg/800px-Gurudwara_Sisganj_Sahib_Chandni_Chowk_19.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "delhi_1": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/Tomb_of_Humayun%2C_Delhi.jpg/800px-Tomb_of_Humayun%2C_Delhi.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "delhi_2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Lodhi_Gardens_on_a_sunny_day.jpg/800px-Lodhi_Gardens_on_a_sunny_day.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "delhi_3": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/Jama_Masjid_-_In_the_Noon.jpg/800px-Jama_Masjid_-_In_the_Noon.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "delhi_4": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Qutb_Minar_2022.jpg/800px-Qutb_Minar_2022.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "delhi_5": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/Samosas%2C_snack_food_at_Wikipedia%27s_16th_Birthday_celebration_in_Chittagong_%2801%29.jpg/800px-Samosas%2C_snack_food_at_Wikipedia%27s_16th_Birthday_celebration_in_Chittagong_%2801%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  "kerala": {
+    "kerala_hero": "https://upload.wikimedia.org/wikipedia/commons/e/ee/House_Boat_DSW.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "kerala_featured": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Alappuzha_Boat_Beauty_W.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "kerala_1": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6e/Kochi%2C_Fishing_nets_at_sunset%2C_Kerala%2C_India.jpg/800px-Kochi%2C_Fishing_nets_at_sunset%2C_Kerala%2C_India.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "kerala_2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Munnar_Overview.jpg/800px-Munnar_Overview.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "kerala_3": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/Varkala_beach_from_above.jpg/800px-Varkala_beach_from_above.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "kerala_4": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/Blue%2C_Green_%26_White.jpg/800px-Blue%2C_Green_%26_White.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "kerala_5": "https://upload.wikimedia.org/wikipedia/commons/3/38/Kathivanoor_Veeran_Chemmarathi_Thara-Eripuram.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+  },
+  "rajasthan": {
+    "raj_hero": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/20191219_Fort_Amber%2C_Amer%2C_Jaipur_0955_9481.jpg/800px-20191219_Fort_Amber%2C_Amer%2C_Jaipur_0955_9481.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "raj_featured": "https://upload.wikimedia.org/wikipedia/commons/9/99/Mehrangarh_Fort_sanhita.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "raj_1": "https://upload.wikimedia.org/wikipedia/commons/4/46/Jaisalmer_Fort.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "raj_2": "https://upload.wikimedia.org/wikipedia/commons/3/32/Udaipur_Lake_Palace.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "raj_3": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Evening_lights_by_the_Pushkar_Lake%2C_Pushkar.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "raj_4": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/20191219_Fort_Amber%2C_Amer%2C_Jaipur_0955_9481.jpg/800px-20191219_Fort_Amber%2C_Amer%2C_Jaipur_0955_9481.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "raj_5": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Ranthambore_National_Park.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+  },
+  "goa": {
+    "goa_hero": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fc/BeachFun.jpg/800px-BeachFun.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "goa_featured": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Panaji_City.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "goa_1": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/800px-Image_created_with_a_mobile_phone.png",
+    "goa_2": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/800px-Image_created_with_a_mobile_phone.png",
+    "goa_3": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/800px-Image_created_with_a_mobile_phone.png",
+    "goa_4": "https://upload.wikimedia.org/wikipedia/commons/b/b6/Spices1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "goa_5": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/800px-Image_created_with_a_mobile_phone.png"
+  },
+  "gujarat": {
+    "guj_hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/800px-Image_created_with_a_mobile_phone.png",
+    "guj_featured": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/800px-Image_created_with_a_mobile_phone.png",
+    "guj_1": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/800px-Image_created_with_a_mobile_phone.png",
+    "guj_2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/Sabarmati_riverside.jpg/800px-Sabarmati_riverside.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "guj_3": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/800px-Image_created_with_a_mobile_phone.png",
+    "guj_4": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/800px-Image_created_with_a_mobile_phone.png",
+    "guj_5": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/800px-Image_created_with_a_mobile_phone.png"
+  },
+  "assam": {
+    "assam_hero": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/800px-Image_created_with_a_mobile_phone.png",
+    "assam_featured": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/800px-Image_created_with_a_mobile_phone.png",
+    "assam_1": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/800px-Image_created_with_a_mobile_phone.png",
+    "assam_2": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/800px-Image_created_with_a_mobile_phone.png",
+    "assam_3": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/800px-Image_created_with_a_mobile_phone.png",
+    "assam_4": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/800px-Image_created_with_a_mobile_phone.png",
+    "assam_5": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/800px-Image_created_with_a_mobile_phone.png"
+  }
+}

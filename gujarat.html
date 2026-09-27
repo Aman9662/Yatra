@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gujarat | YATRA</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+      body { background: var(--paper); }
+      .hub-hero {
+        width: 100%; height: 60vh; min-height: 400px;
+        position: relative; display: flex; align-items: center; justify-content: center;
+        background-size: cover; background-position: center;
+        color: white; text-align: center; margin-bottom: 80px;
+      }
+      .hub-hero::after {
+        content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.5);
+      }
+      .hub-hero-inner {
+        position: relative; z-index: 10; max-width: 800px; padding: 20px;
+      }
+      .hub-hero-inner h1 { font-family: var(--font-display); font-size: 80px; margin: 0; font-weight: 400; font-style: italic; }
+      .hub-hero-inner p { font-family: var(--font-body); font-size: 20px; font-weight: 300; opacity: 0.9; margin-top: 16px; line-height: 1.6; }
+
+      .hub-layout {
+        max-width: 1200px; margin: 0 auto 100px; padding: 0 20px;
+        display: grid; grid-template-columns: 2fr 1fr; gap: 60px;
+      }
+      @media(max-width: 900px) { .hub-layout { grid-template-columns: 1fr; } }
+      
+      .hub-main-list { display: flex; flex-direction: column; gap: 40px; }
+      .hub-story {
+        display: grid; grid-template-columns: 200px 1fr; gap: 24px; text-decoration: none; color: inherit; align-items: center;
+      }
+      .hub-story-img {
+        width: 200px; height: 200px; background-size: cover; background-position: center; border-radius: 4px;
+      }
+      .hub-story-body h3 { font-family: var(--font-display); font-size: 28px; margin: 0 0 12px; transition: color 0.2s; }
+      .hub-story:hover .hub-story-body h3 { color: var(--terracotta); }
+      .hub-story-body p { font-family: var(--font-body); font-size: 15px; color: var(--muted); margin: 0 0 16px; line-height: 1.6; }
+      .hub-story-meta { font-family: var(--font-body); font-size: 11px; text-transform: uppercase; color: var(--light-muted); letter-spacing: 1px; }
+      
+      @media(max-width: 600px) {
+        .hub-story { grid-template-columns: 1fr; }
+        .hub-story-img { width: 100%; height: 250px; }
+      }
+    </style>
+  
+</head>
+<body id="stateNameData" data-state="Gujarat">
+
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="home.html" class="brand nav-brand">YATRA.</a>
+      <div class="nav-center">
+        <a href="home.html">Stories</a>
+        <a href="delhi.html">Delhi</a>
+        <a href="rajasthan.html">Rajasthan</a>
+        <a href="kerala.html">Kerala</a>
+        <a href="goa.html">Goa</a>
+        <a href="gujarat.html">Gujarat</a>
+        <a href="assam.html">Assam</a>
+      </div>
+      <div class="nav-right">
+        <a href="saved.html" id="savedLink" class="nav-saved-badge">Saved Locally (<span id="savedCount">0</span>)</a>
+        
+      </div>
+    </div>
+  </nav>
+
+  
+      <div class="hub-hero" style="background-image: url('assets/img/gujarat_3.jpg')">
+        <div class="hub-hero-inner">
+          <h1>Gujarat</h1>
+          <p>A diverse ecosystem ranging from the stark white salt desert of the Rann to the last sanctuary of the Asiatic lion.</p>
+        </div>
+      </div>
+
+      <div class="hub-layout" id="hubLayout">
+        <div class="hub-main-list" id="hubStoryList">
+          <!-- Populated by JS -->
+          <div style="padding: 40px; text-align: center; color: var(--muted);">Loading editorial stories...</div>
+        </div>
+        <aside>
+          <div class="sw">
+            <h4 style="font-family: var(--font-display); font-size: 24px; margin-bottom: 20px;">Why We Love Gujarat</h4>
+            <p style="font-family: var(--font-body); font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 20px;">
+              There is an undeniable rhythm to this state that captures the imagination of every traveler. Whether you are exploring ancient ruins or tasting the vibrant local cuisine, it leaves a lasting impression.
+            </p>
+            <button class="btn-primary" onclick="window.saveToYatra('Gujarat')" style="width: 100%; display: block; text-align: center;">Save Destination</button>
+          </div>
+        </aside>
+      </div>
+
+      <script src="js/articles.js"></script>
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const list = document.getElementById('hubStoryList');
+          if (!window.articlesData) {
+            list.innerHTML = '<p style="color:red;">Failed to load stories.</p>';
+            return;
+          }
+          
+          const stateArticles = Object.entries(window.articlesData)
+            .map(([id, data]) => ({id, ...data}))
+            .filter(a => a.state && a.state.toLowerCase() === 'gujarat');
+            
+          if (stateArticles.length === 0) {
+            list.innerHTML = '<p>No stories found for this destination yet.</p>';
+            return;
+          }
+          
+          list.innerHTML = stateArticles.map(a => `
+            <a href="blog.html?id=${a.id}" class="hub-story">
+              <div class="hub-story-img" style="background-image: url('${a.heroImg}')"></div>
+              <div class="hub-story-body">
+                <span class="feed-cat" style="color: var(--terracotta); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 8px;">${a.category}</span>
+                <h3>${a.title}</h3>
+                <p>${a.excerpt || ''}</p>
+                <div class="hub-story-meta">${a.date} &middot; ${a.readTime} &middot; By ${a.author}</div>
+              </div>
+            </a>
+          `).join('');
+        });
+      </script>
+    <section class="reviews-section">
+    <div class="container">
+      <div class="section-header"><h2>Traveller Reviews</h2></div>
+      
+      <!-- Review Form -->
+      <div class="review-form-card">
+        <h3>Share your experience</h3>
+        <form id="reviewForm">
+          <div class="review-form-row">
+            <input class="form-input" type="text" id="reviewName" placeholder="Your name" required>
+            <select class="form-input" id="reviewRating" required>
+              <option value="">Rating</option>
+              <option value="5">★★★★★ Excellent</option>
+              <option value="4">★★★★☆ Good</option>
+              <option value="3">★★★☆☆ Average</option>
+              <option value="2">★★☆☆☆ Poor</option>
+              <option value="1">★☆☆☆☆ Bad</option>
+            </select>
+          </div>
+          <textarea class="form-input" id="reviewText" rows="4" placeholder="Tell others about your experience..." required></textarea>
+          <button type="submit" class="btn-primary">Post Review</button>
+        </form>
+      </div>
+      
+      <!-- Reviews List -->
+      <div id="reviewsList" class="reviews-list"></div>
+    </div>
+  </section>
+
+  <section class="sentiment-section">
+    <div class="container">
+      <div class="sentiment-header">
+        <h2>Tourist Sentiment</h2>
+        <p class="sentiment-sub">What travellers are saying about Gujarat</p>
+        <span class="mock-badge">&#9679; Demo / Mock Data</span>
+      </div>
+      <div class="dashboard-grid">
+        <div class="insight-box">
+          <h4>AI Insight</h4>
+          <p id="quickInsight">Loading insight...</p>
+        </div>
+        <div class="chart-box">
+          <canvas id="sentimentChart"></canvas>
+        </div>
+      </div>
+      <div class="data-table-wrap">
+        <table id="sentimentTable">
+          <thead><tr><th>Destination</th><th>Reviews</th><th>Positive</th><th>Neutral</th><th>Negative</th><th>Conclusion</th></tr></thead>
+          <tbody id="sentimentTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="related-section">
+    <div class="container">
+      <div class="section-header"><h2>Read Next</h2></div>
+      <div class="dest-grid">
+        <a href="blog.html?id=kerala-wayanad-wildlife" class="story-card">
+          <div class="story-card-img" style="background-image: url('assets/img/kerala_5.jpg');"></div>
+          <div class="story-card-body">
+            <span class="story-cat">Kerala</span>
+            <h3>Wayanad Wildlife</h3>
+            <p class="teaser">Misty forests hiding elephants and tigers.</p>
+          </div>
+        </a>
+        <a href="blog.html?id=goa-anjuna-flea-market" class="story-card">
+          <div class="story-card-img" style="background-image: url('assets/img/assam_5.jpg');"></div>
+          <div class="story-card-body">
+            <span class="story-cat">Goa</span>
+            <h3>Anjuna Flea Market</h3>
+            <p class="teaser">Wednesday mornings come alive with color.</p>
+          </div>
+        </a>
+        <a href="blog.html?id=assam-sivasagar-heritage" class="story-card">
+          <div class="story-card-img" style="background-image: url('assets/img/goa_3.jpg');"></div>
+          <div class="story-card-body">
+            <span class="story-cat">Assam</span>
+            <h3>Sivasagar Heritage</h3>
+            <p class="teaser">The ancient Ahom capital with stunning ruins.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div><h4 class="brand">YATRA.</h4><p>An India travel blog exploring states through editorial storytelling and data visualization.</p></div>
+        <div><h4>Links</h4><a href="about.html">About & Contact</a><a href="toolkit.html">Travel Toolkit</a><a href="home.html">All Stories</a></div>
+        <div><h4>Explore</h4><a href="saved.html">Your Yatra</a><a href="home.html">All Stories</a></div>
+      </div>
+      <p class="footer-copy">&copy; 2026 YATRA. Web Development Final Project.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/sentiment.js"></script>
+  <script src="js/reviews.js"></script>
+</body>
+</html>
+

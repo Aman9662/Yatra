@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Story | YATRA</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Magazine Article Layout Overrides */
+    body { background-color: var(--paper); }
+    
+    .mag-hero {
+      width: 100%; height: 90vh; min-height: 600px;
+      position: relative; display: flex; align-items: flex-end;
+      background-size: cover; background-position: center; background-attachment: fixed;
+    }
+    .mag-hero::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0) 100%);
+    }
+    .mag-hero-content {
+      position: relative; z-index: 10; padding: 60px 40px; max-width: 1000px; margin: 0 auto; width: 100%; color: white; text-align: center;
+    }
+    .mag-cat {
+      font-family: var(--font-body); text-transform: uppercase; letter-spacing: 3px; font-size: 13px; font-weight: 600; color: var(--peach); margin-bottom: 24px; display: block;
+    }
+    .mag-hero-content h1 {
+      font-family: var(--font-display); font-size: 5vw; line-height: 1.1; margin: 0 0 24px 0; font-weight: 400; font-style: italic;
+    }
+    @media(max-width: 768px) { .mag-hero-content h1 { font-size: 42px; } }
+    .mag-excerpt {
+      font-family: var(--font-body); font-size: 20px; font-weight: 300; opacity: 0.9; max-width: 700px; margin: 0 auto 32px;
+    }
+    .mag-meta {
+      display: flex; gap: 24px; justify-content: center; align-items: center; font-size: 14px; font-family: var(--font-body); text-transform: uppercase; letter-spacing: 1px; color: #ccc;
+    }
+    
+    /* Immersive Body Layout */
+    .mag-layout {
+      max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 200px 1fr 200px; gap: 40px; padding: 60px 20px;
+    }
+    .mag-main {
+      font-family: var(--font-display); font-size: 21px; line-height: 1.8; color: #222; max-width: 680px; margin: 0 auto; width: 100%;
+    }
+    .mag-main p { margin-bottom: 32px; }
+    .mag-main p:first-of-type::first-letter {
+      float: left; font-size: 96px; line-height: 0.8; padding: 12px 12px 0 0; color: var(--terracotta); font-family: var(--font-display);
+    }
+    
+    /* Elegant Sidebar / Actions */
+    .mag-side-left, .mag-side-right {
+      position: sticky; top: 100px; height: max-content;
+    }
+    .mag-side-left { text-align: right; border-right: 1px solid var(--border); padding-right: 20px; }
+    .mag-side-right { border-left: 1px solid var(--border); padding-left: 20px; font-family: var(--font-body); }
+    
+    .mag-action-btn {
+      background: none; border: none; font-family: var(--font-body); font-size: 13px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); cursor: pointer; padding: 12px 0; display: block; width: 100%; text-align: right; transition: color 0.2s;
+    }
+    .mag-action-btn:hover { color: var(--terracotta); }
+    
+    .mag-toc-link {
+      display: block; font-size: 14px; color: var(--muted); text-decoration: none; padding: 8px 0; transition: color 0.2s;
+    }
+    .mag-toc-link:hover { color: var(--ink); }
+
+    @media(max-width: 1024px) {
+      .mag-layout { grid-template-columns: 1fr; }
+      .mag-side-left, .mag-side-right { display: none; }
+    }
+
+    /* Magazine Photo Strip */
+    .mag-gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 60px -10vw 60px -10vw; }
+    .mag-gallery-img { height: 60vh; background-size: cover; background-position: center; }
+    .mag-caption { font-family: var(--font-body); font-size: 13px; color: var(--muted); text-align: center; margin-top: 12px; font-style: italic; }
+    @media(max-width: 768px) { .mag-gallery { margin: 40px 0; grid-template-columns: 1fr; } .mag-gallery-img { height: 40vh; } }
+    
+    /* Practical Info Sections */
+    .mag-practical {
+      background: var(--cream); padding: 60px; margin: 60px 0; border: 1px solid #E6DFD4; font-family: var(--font-body); font-size: 16px;
+    }
+    .mag-practical h2 { font-family: var(--font-display); font-size: 32px; margin-top: 0; color: var(--terracotta); }
+    .mag-practical h3 { font-size: 18px; margin: 24px 0 8px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+
+    /* Related Stories - Editorial Grid */
+    .mag-related { margin: 80px auto; max-width: 1200px; padding: 0 20px; }
+    .mag-related h2 { font-family: var(--font-display); font-size: 36px; text-align: center; margin-bottom: 40px; }
+    .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+    .rel-card { text-decoration: none; color: inherit; group; display: block; }
+    .rel-img { height: 300px; background-size: cover; background-position: center; filter: grayscale(20%); transition: filter 0.4s; }
+    .rel-card:hover .rel-img { filter: grayscale(0%); }
+    .rel-cat { font-family: var(--font-body); font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--terracotta); margin: 16px 0 8px; display: block; }
+    .rel-title { font-family: var(--font-display); font-size: 24px; margin: 0; }
+    @media(max-width: 768px) { .related-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="progress-bar" id="progressBar"></div>
+
+  <nav class="navbar" style="background: transparent; border: none; position: fixed; top: 0; left: 0; right: 0; padding: 20px; transition: background 0.3s;" id="magNav">
+    <div class="navbar-inner" style="max-width: 1400px;">
+      <a href="home.html" class="brand nav-brand" style="color: white; font-size: 28px; mix-blend-mode: difference;">YATRA.</a>
+      <div class="nav-right">
+        <a href="saved.html" id="savedLink" style="color: white; mix-blend-mode: difference; font-weight: 600;">Saved Locally (0)</a>
+      </div>
+    </div>
+  </nav>
+
+  <div id="articleContainer">
+    <div style="padding: 30vh 0; text-align: center; font-family: var(--font-display); font-size: 24px;">Preparing the story...</div>
+  </div>
+
+  <footer class="site-footer" style="margin-top: 0; border-top: none; background: var(--ink); color: white;">
+    <div class="container">
+      <div class="footer-grid">
+        <div><h4 class="brand" style="color:white;">YATRA.</h4><p>An India travel magazine exploring states through editorial storytelling.</p></div>
+        <div><h4>States</h4><a href="delhi.html">Delhi</a><a href="rajasthan.html">Rajasthan</a><a href="kerala.html">Kerala</a><a href="goa.html">Goa</a><a href="gujarat.html">Gujarat</a><a href="assam.html">Assam</a></div>
+        <div><h4>Explore</h4><a href="home.html">Discover</a><a href="saved.html">Bookmarks</a></div>
+      </div>
+      <p class="footer-copy" style="border-color: #333;">&copy; 2026 YATRA. Web Development Final Project.</p>
+    </div>
+  </footer>
+
+  <script src="js/articles.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('magNav');
+      if (window.scrollY > 100) {
+        nav.style.background = 'rgba(255, 255, 255, 0.95)';
+        nav.style.boxShadow = '0 1px 10px rgba(0,0,0,0.1)';
+        nav.querySelectorAll('a').forEach(a => { a.style.color = '#1a1a1a'; a.style.mixBlendMode = 'normal'; });
+      } else {
+        nav.style.background = 'transparent';
+        nav.style.boxShadow = 'none';
+        nav.querySelectorAll('a').forEach(a => { a.style.color = 'white'; a.style.mixBlendMode = 'difference'; });
+      }
+      
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      document.getElementById('progressBar').style.width = ((window.scrollY / height) * 100) + '%';
+    });
+
+    (() => {
+      try {
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get('id') || 'delhi-featured';
+        
+        const container = document.getElementById('articleContainer');
+        if (!container) return;
+        if (!window.articlesData) {
+          container.innerHTML = '<div style="padding:20vh 0;text-align:center"><h2>Error: Articles database failed to load</h2><a href="home.html" style="color:var(--terracotta);">← Back to Home</a></div>';
+          return;
+        }
+
+        const a = window.articlesData[id];
+        if (!a) {
+          container.innerHTML = '<div style="padding:20vh 0;text-align:center;font-family:var(--font-display);"><h1>Story not found</h1><p>The story "' + id + '" does not exist.</p><br><a href="home.html" style="color:var(--terracotta); text-decoration:none;">← Discover other stories</a></div>';
+          return;
+        }
+
+        document.title = a.title + ' | YATRA';
+
+        // Layout generation
+        const bodyHTML = (a.body || []).map(p => `<p>${p.replace(/<p>|<\/p>/g, '')}</p>`).join('');
+        
+        const galleryImgs = a.galleryImgs || [];
+        const galleryHTML = galleryImgs.length >= 2 ? `
+          <div class="mag-gallery">
+            <div class="mag-gallery-img" style="background-image: url('${galleryImgs[0]}')"></div>
+            <div class="mag-gallery-img" style="background-image: url('${galleryImgs[1]}')"></div>
+          </div>
+          <div class="mag-caption">Visuals from the journey across ${a.state}</div>
+        ` : '';
+
+        let practicalHTML = '';
+        if (a.itinerary && a.itinerary.length) {
+          practicalHTML = `
+            <div class="mag-practical" id="practical-info">
+              <h2>Practical Information</h2>
+              <h3>Quick Facts</h3>
+              <p style="font-size: 14px; margin-bottom: 24px;">
+                ${Object.entries(a.quickFacts||{}).map(([k,v]) => `<strong>${k}:</strong> ${v}`).join(' &nbsp; | &nbsp; ')}
+              </p>
+              <h3>The Blueprint</h3>
+              ${(a.planSections || []).map(s => `<p><strong>${s.heading}:</strong> ${s.text}</p>`).join('')}
+              <h3>Suggested Itinerary</h3>
+              <ul style="padding-left: 20px; line-height: 1.6;">
+                ${(a.itinerary || []).map(day => `<li style="margin-bottom:12px;"><strong>${day.day}:</strong> ${day.desc}</li>`).join('')}
+              </ul>
+            </div>
+          `;
+        }
+
+        const relatedIds = (a.relatedIds || []).filter(rid => window.articlesData[rid]);
+        const relatedHTML = relatedIds.length ? `
+          <div class="mag-related">
+            <h2>More from ${a.state}</h2>
+            <div class="related-grid">
+              ${relatedIds.slice(0,3).map(rid => {
+                const r = window.articlesData[rid];
+                return `<a href="blog.html?id=${rid}" class="rel-card">
+                  <div class="rel-img" style="background-image: url('${r.heroImg}')"></div>
+                  <span class="rel-cat">${r.category}</span>
+                  <h3 class="rel-title">${r.title}</h3>
+                </a>`;
+              }).join('')}
+            </div>
+          </div>
+        ` : '';
+
+        const html = `
+          <header class="mag-hero" style="background-image: url('${a.heroImg}')">
+            <div class="mag-hero-content">
+              <span class="mag-cat">${a.state} &middot; ${a.category}</span>
+              <h1>${a.title}</h1>
+              <p class="mag-excerpt">${a.excerpt || ''}</p>
+              <div class="mag-meta">
+                <span>By ${a.author || 'Yatra Editorial'}</span>
+                <span>&bull;</span>
+                <span>${a.date || 'Sep 2026'}</span>
+                <span>&bull;</span>
+                <span>${a.readTime || '5 min read'}</span>
+              </div>
+            </div>
+          </header>
+
+          <div class="mag-layout">
+            <aside class="mag-side-left">
+              <span style="font-size:11px; text-transform:uppercase; color:#999; letter-spacing:1px; margin-bottom:20px; display:block;">Actions</span>
+              <button class="mag-action-btn" onclick="navigator.clipboard.writeText(window.location.href); alert('Story link copied to clipboard!')">⎘ Copy Link</button>
+              <button class="mag-action-btn" onclick="window.saveToYatra('${a.state}')">★ Bookmark ${a.state}</button>
+            </aside>
+            
+            <main class="mag-main">
+              ${bodyHTML}
+              ${galleryHTML}
+              ${practicalHTML}
+            </main>
+
+            <aside class="mag-side-right">
+              <span style="font-size:11px; text-transform:uppercase; color:#999; letter-spacing:1px; margin-bottom:20px; display:block;">In this Story</span>
+              <a href="#" class="mag-toc-link">The Narrative</a>
+              ${practicalHTML ? '<a href="#practical-info" class="mag-toc-link">Practical Info</a>' : ''}
+              <a href="${(a.state||'').toLowerCase()}.html" class="mag-toc-link" style="color:var(--terracotta); margin-top: 20px;">Explore all ${a.state} →</a>
+            </aside>
+          </div>
+
+          ${relatedHTML}
+        `;
+
+        container.innerHTML = html;
+
+        // Save logic inline to avoid dependency issues
+        window.saveToYatra = (state) => {
+          let saved = JSON.parse(localStorage.getItem('yatra_saved')) || [];
+          if (!saved.includes(state)) {
+            saved.push(state);
+            localStorage.setItem('yatra_saved', JSON.stringify(saved));
+            alert(state + ' added to your local bookmarks!');
+            if (typeof window.updateNav === 'function') window.updateNav();
+          } else {
+            alert(state + ' is already saved locally!');
+          }
+        };
+
+      } catch (err) {
+        document.getElementById('articleContainer').innerHTML = '<div style="padding:100px 0;text-align:center;color:red;"><h2>Rendering Error</h2><p>' + err.message + '</p></div>';
+      }
+    })();
+  </script>
+</body>
+</html>

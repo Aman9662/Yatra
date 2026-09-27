@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Toolkit | YATRA</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .toolkit-header { padding: 120px 0 60px; text-align: center; }
+    .toolkit-header h1 { font-size: 42px; margin-bottom: 24px; font-family: var(--font-heading); }
+    
+    .tools-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 80px; }
+    
+    .tool-card { background: var(--paper); padding: 40px; border-radius: var(--radius-md); border: 1px solid var(--border-light); }
+    .tool-card h2 { color: var(--terracotta); font-family: var(--font-heading); margin-bottom: 24px; }
+    
+    .check-item { display: flex; align-items: center; margin-bottom: 12px; font-size: 16px; cursor: pointer; }
+    .check-item input { margin-right: 12px; width: 18px; height: 18px; cursor: pointer; }
+    .check-item.done span { text-decoration: line-through; color: var(--muted); }
+    
+    .calc-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+    .calc-input { width: 100px; padding: 8px; border: 1px solid var(--border-light); border-radius: 4px; text-align: right; }
+    .calc-total { font-size: 24px; font-weight: 600; text-align: right; border-top: 2px solid var(--border-light); padding-top: 16px; margin-top: 16px; }
+    
+    @media (max-width: 768px) {
+      .tools-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="home.html" class="brand nav-brand">YATRA.</a>
+      <div class="nav-center">
+        <a href="home.html">Stories</a>
+        <a href="delhi.html">Delhi</a>
+        <a href="rajasthan.html">Rajasthan</a>
+        <a href="kerala.html">Kerala</a>
+        <a href="goa.html">Goa</a>
+        <a href="gujarat.html">Gujarat</a>
+        <a href="assam.html">Assam</a>
+      </div>
+      <div class="nav-right">
+        <a href="saved.html" id="savedLink" class="nav-saved-badge">Your Yatra (0)</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="toolkit-header">
+    <div class="container">
+      <h1>Travel Toolkit</h1>
+      <p style="color: var(--muted); font-size: 20px;">Practical tools for planning your Indian journey.</p>
+    </div>
+  </header>
+
+  <div class="container tools-grid">
+    <div class="tool-card">
+      <h2>Packing Checklist</h2>
+      <div id="checklist">
+        <label class="check-item"><input type="checkbox"><span>Valid ID / Passport</span></label>
+        <label class="check-item"><input type="checkbox"><span>Universal Power Adapter</span></label>
+        <label class="check-item"><input type="checkbox"><span>Comfortable Walking Shoes</span></label>
+        <label class="check-item"><input type="checkbox"><span>Water Purifier Bottle</span></label>
+        <label class="check-item"><input type="checkbox"><span>Light Cotton Clothing</span></label>
+        <label class="check-item"><input type="checkbox"><span>Basic First-Aid Kit</span></label>
+        <label class="check-item"><input type="checkbox"><span>Mosquito Repellent</span></label>
+      </div>
+    </div>
+    
+    <div class="tool-card">
+      <h2>Daily Budget Estimator</h2>
+      <div class="calc-row">
+        <span>Accommodation</span>
+        <div>₹ <input type="number" class="calc-input" value="1500" onchange="calcTotal()"></div>
+      </div>
+      <div class="calc-row">
+        <span>Food & Drink</span>
+        <div>₹ <input type="number" class="calc-input" value="800" onchange="calcTotal()"></div>
+      </div>
+      <div class="calc-row">
+        <span>Local Transport</span>
+        <div>₹ <input type="number" class="calc-input" value="400" onchange="calcTotal()"></div>
+      </div>
+      <div class="calc-row">
+        <span>Activities & Entry</span>
+        <div>₹ <input type="number" class="calc-input" value="500" onchange="calcTotal()"></div>
+      </div>
+      
+      <div class="calc-total">
+        Estimated Daily: <span id="totalBudget">₹ 3200</span>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div><h4 class="brand">YATRA.</h4><p>An India travel blog exploring states through editorial storytelling and data visualization.</p></div>
+        <div><h4>Links</h4><a href="about.html">About & Contact</a><a href="toolkit.html">Travel Toolkit</a></div>
+        <div><h4>Explore</h4><a href="saved.html">Your Yatra</a></div>
+      </div>
+      <p class="footer-copy">&copy; 2026 YATRA. Web Development Final Project.</p>
+    </div>
+  </footer>
+  
+  <script src="js/main.js"></script>
+  <script>
+    document.querySelectorAll('.check-item input').forEach(box => {
+      box.addEventListener('change', function() {
+        if(this.checked) this.parentElement.classList.add('done');
+        else this.parentElement.classList.remove('done');
+      });
+    });
+    
+    function calcTotal() {
+      const inputs = document.querySelectorAll('.calc-input');
+      let total = 0;
+      inputs.forEach(input => total += Number(input.value) || 0);
+      document.getElementById('totalBudget').innerText = '₹ ' + total;
+    }
+  </script>
+</body>
+</html>
+
+

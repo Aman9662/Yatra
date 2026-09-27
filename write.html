@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Write a Story | YATRA</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body { background-color: var(--paper); }
+    
+    .write-container {
+      max-width: 800px; margin: 120px auto 100px; padding: 40px;
+      background: white; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+    }
+    .write-header {
+      font-family: var(--font-display); font-size: 42px; margin-bottom: 10px; font-weight: 400; color: var(--ink);
+    }
+    .write-sub {
+      font-family: var(--font-body); font-size: 16px; color: var(--muted); margin-bottom: 40px;
+    }
+
+    .form-group { margin-bottom: 24px; }
+    .form-label {
+      display: block; font-family: var(--font-body); font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 8px;
+    }
+    .form-input, .form-textarea, .form-select {
+      width: 100%; padding: 14px; border: 1px solid var(--border); border-radius: 8px;
+      font-family: var(--font-body); font-size: 16px; outline: none; transition: border-color 0.2s;
+    }
+    .form-input:focus, .form-textarea:focus, .form-select:focus { border-color: var(--terracotta); }
+    .form-textarea { min-height: 200px; resize: vertical; line-height: 1.6; }
+    
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    @media(max-width: 600px) { .grid-2 { grid-template-columns: 1fr; } }
+
+    .image-upload-wrapper {
+      border: 2px dashed var(--border); border-radius: 8px; padding: 40px; text-align: center; cursor: pointer; transition: background 0.2s; position: relative; overflow: hidden;
+    }
+    .image-upload-wrapper:hover { background: var(--border-light); }
+    .image-upload-wrapper input[type="file"] {
+      position: absolute; inset: 0; opacity: 0; cursor: pointer;
+    }
+    .upload-preview {
+      width: 100%; height: 100%; position: absolute; inset: 0; background-size: cover; background-position: center; display: none;
+    }
+    .upload-text {
+      font-family: var(--font-body); color: var(--muted); font-size: 14px; position: relative; z-index: 10;
+    }
+
+    .btn-submit {
+      background: var(--terracotta); color: white; border: none; padding: 16px 32px; border-radius: 8px; font-family: var(--font-body); font-size: 16px; font-weight: 600; cursor: pointer; transition: background 0.2s; width: 100%; margin-top: 20px;
+    }
+    .btn-submit:hover { background: #c05a2e; }
+
+    #errorMsg { color: red; font-family: var(--font-body); font-size: 14px; margin-top: 10px; display: none; }
+    #successMsg { color: green; font-family: var(--font-body); font-size: 14px; margin-top: 10px; display: none; }
+  </style>
+</head>
+<body>
+  
+  <nav class="navbar" style="border-bottom: 1px solid var(--border); background: white;">
+    <div class="navbar-inner" style="max-width: 1400px;">
+      <a href="home.html" class="brand nav-brand" style="color: var(--ink); font-size: 28px;">YATRA.</a>
+      <div class="nav-right">
+        <a href="home.html" style="color: var(--ink); text-decoration: none; font-weight: 500;">&larr; Back to Home</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="write-container">
+    <h1 class="write-header">Write a Story</h1>
+    <p class="write-sub">Share your travel experiences. (Saved locally in your browser)</p>
+
+    <form id="writeForm">
+      <div class="form-group">
+        <label class="form-label">Story Title</label>
+        <input type="text" class="form-input" id="wTitle" placeholder="e.g. A Weekend in Jaipur" required>
+      </div>
+
+      <div class="grid-2">
+        <div class="form-group">
+          <label class="form-label">State / Location</label>
+          <select class="form-select" id="wState" required>
+            <option value="">Select a state...</option>
+            <option value="Rajasthan">Rajasthan</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Kerala">Kerala</option>
+            <option value="Goa">Goa</option>
+            <option value="Gujarat">Gujarat</option>
+            <option value="Assam">Assam</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Category</label>
+          <select class="form-select" id="wCategory" required>
+            <option value="Heritage">Heritage</option>
+            <option value="Nature">Nature</option>
+            <option value="Culture">Culture</option>
+            <option value="Architecture">Architecture</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Author Name</label>
+        <input type="text" class="form-input" id="wAuthor" placeholder="Your name" required>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Short Excerpt</label>
+        <input type="text" class="form-input" id="wExcerpt" placeholder="A brief 1-sentence summary..." required>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Cover Image</label>
+        <div class="image-upload-wrapper" id="uploadWrapper">
+          <div class="upload-text" id="uploadText">📷 Click to upload a cover image (max 2MB)</div>
+          <div class="upload-preview" id="uploadPreview"></div>
+          <input type="file" id="wImage" accept="image/*">
+        </div>
+        <input type="hidden" id="wImageData">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Story Content</label>
+        <textarea class="form-textarea" id="wBody" placeholder="Write your full story here... Use double line breaks for new paragraphs." required></textarea>
+      </div>
+
+      <div id="errorMsg"></div>
+      <div id="successMsg">Story published successfully! Redirecting...</div>
+
+      <button type="submit" class="btn-submit">Publish Story</button>
+    </form>
+  </div>
+
+  <script>
+    // Handle Image Upload and convert to Base64 (Resize if needed to save localStorage space)
+    const wImage = document.getElementById('wImage');
+    const uploadPreview = document.getElementById('uploadPreview');
+    const uploadText = document.getElementById('uploadText');
+    const wImageData = document.getElementById('wImageData');
+    const errorMsg = document.getElementById('errorMsg');
+
+    wImage.addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      
+      // Check size (warn if > 2MB)
+      if (file.size > 2 * 1024 * 1024) {
+        errorMsg.style.display = 'block';
+        errorMsg.innerText = 'Image is too large. Please select an image under 2MB.';
+        wImage.value = '';
+        return;
+      }
+      errorMsg.style.display = 'none';
+
+      const reader = new FileReader();
+      reader.onload = function(event) {
+        const base64Str = event.target.result;
+        uploadPreview.style.backgroundImage = `url('${base64Str}')`;
+        uploadPreview.style.display = 'block';
+        uploadText.style.display = 'none';
+        wImageData.value = base64Str;
+      };
+      reader.readAsDataURL(file);
+    });
+
+    // Handle Form Submit
+    document.getElementById('writeForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      errorMsg.style.display = 'none';
+
+      const title = document.getElementById('wTitle').value.trim();
+      const state = document.getElementById('wState').value;
+      const category = document.getElementById('wCategory').value;
+      const author = document.getElementById('wAuthor').value.trim();
+      const excerpt = document.getElementById('wExcerpt').value.trim();
+      const bodyText = document.getElementById('wBody').value.trim();
+      let heroImg = wImageData.value;
+
+      if (!heroImg) {
+        // Fallback default image if they didn't upload one
+        heroImg = 'assets/img/rajasthan_0.jpg';
+      }
+
+      // Generate a simple ID
+      const id = 'user-' + Date.now() + '-' + title.toLowerCase().replace(/[^a-z0-9]+/g, '-').slice(0, 30);
+      
+      // Parse body paragraphs
+      const bodyParas = bodyText.split('\n\n').map(p => `<p>${p.trim()}</p>`);
+      
+      // Current Date
+      const dateStr = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+
+      const newArticle = {
+        title,
+        state,
+        category,
+        author,
+        date: dateStr,
+        readTime: Math.max(1, Math.ceil(bodyText.split(' ').length / 200)) + ' min read',
+        excerpt,
+        heroImg,
+        body: bodyParas,
+        isUserGenerated: true
+      };
+
+      try {
+        let userArticles = JSON.parse(localStorage.getItem('yatra_user_articles')) || {};
+        userArticles[id] = newArticle;
+        localStorage.setItem('yatra_user_articles', JSON.stringify(userArticles));
+        
+        document.getElementById('successMsg').style.display = 'block';
+        setTimeout(() => {
+          window.location.href = `blog.html?id=${id}`;
+        }, 1500);
+      } catch (err) {
+        errorMsg.style.display = 'block';
+        errorMsg.innerText = 'Failed to save story. LocalStorage might be full (image too large).';
+      }
+    });
+  </script>
+</body>
+</html>
