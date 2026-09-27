@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>YATRA - Semester 3 Project Report</title>
+  <title>YATRA - Comprehensive Project Manual</title>
   <style>
     :root {
-      --primary: #1a1a1a;
+      --primary: #111;
       --secondary: #D96B3B;
       --text: #333;
       --bg: #fafafa;
@@ -19,42 +19,49 @@
       padding: 40px;
     }
     .container {
-      max-width: 850px;
+      max-width: 900px;
       margin: 0 auto;
       background: white;
-      padding: 60px;
+      padding: 60px 80px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      border-top: 6px solid var(--secondary);
     }
-    h1 { font-size: 36px; color: var(--primary); margin-bottom: 5px; }
-    h2 { font-size: 24px; color: var(--secondary); margin-top: 40px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
-    h3 { font-size: 18px; color: var(--primary); margin-top: 24px; }
-    p, li { font-size: 15px; }
-    ul { padding-left: 20px; }
-    li { margin-bottom: 8px; }
-    .subtitle { font-size: 18px; color: #666; margin-bottom: 40px; }
+    .title-page { text-align: center; margin-bottom: 100px; }
+    h1 { font-size: 42px; color: var(--primary); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 2px; }
+    .subtitle { font-size: 20px; color: var(--secondary); margin-bottom: 60px; }
     
-    .qa-box {
-      background: #f9f9f9;
+    h2 { font-size: 26px; color: var(--secondary); margin-top: 60px; border-bottom: 2px solid #eee; padding-bottom: 10px; page-break-after: avoid; }
+    h3 { font-size: 20px; color: var(--primary); margin-top: 30px; }
+    h4 { font-size: 16px; color: #555; margin-top: 20px; }
+    p, li { font-size: 15px; color: #444; }
+    
+    .feature-box {
+      background: #fdfaf8;
       border-left: 4px solid var(--secondary);
-      padding: 16px 24px;
-      margin-bottom: 20px;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
     }
-    .qa-q { font-weight: bold; color: var(--primary); margin-bottom: 8px; }
-    .qa-a { color: #555; }
+    .feature-title { font-weight: bold; color: var(--primary); margin-bottom: 8px; font-size: 16px; }
     
     code {
       background: #f1f1f1;
       padding: 2px 6px;
       border-radius: 4px;
-      font-family: monospace;
+      font-family: Consolas, monospace;
       color: #d14;
+      font-size: 14px;
     }
+    
+    .toc { line-height: 2; margin-top: 40px; font-size: 16px; }
+    .toc ul { list-style-type: none; padding-left: 0; }
+    .toc li { border-bottom: 1px dotted #ccc; margin-bottom: 10px; }
+    
+    .page-break { page-break-after: always; margin-top: 60px; border-top: 1px dashed #ccc; padding-top: 60px; }
 
     @media print {
       body { background: white; padding: 0; }
-      .container { box-shadow: none; padding: 0; max-width: 100%; border-top: none; }
-      .qa-box { break-inside: avoid; }
+      .container { box-shadow: none; padding: 0; max-width: 100%; }
+      .page-break { border: none; padding: 0; margin: 0; }
     }
   </style>
 </head>
@@ -64,150 +71,147 @@
     <!-- Title Page -->
     <div class="title-page">
       <h1>YATRA</h1>
-      <div class="subtitle" style="font-size: 24px; color: var(--secondary);">An India Travel Magazine</div>
+      <div class="subtitle">Comprehensive Project Manual & Feature Documentation</div>
       <br><br><br>
-      <p style="font-size: 20px;"><strong>A Project Report</strong></p>
-      <p>Submitted in partial fulfillment of the requirements for</p>
-      <p style="font-size: 18px; font-weight: bold;">Semester 3 Web Development Practical</p>
-      <br><br><br>
-      <div style="text-align: left; max-width: 400px; margin: 0 auto; border: 1px solid #ddd; padding: 20px; border-radius: 8px;">
+      <p style="font-size: 22px;"><strong>Semester 3 Web Development Practical</strong></p>
+      <p>A Complete Guide to Every Button, Feature, and Logic Flow</p>
+      <br><br><br><br>
+      <div style="text-align: left; max-width: 450px; margin: 0 auto; border: 1px solid #ddd; padding: 30px; border-radius: 12px; background: #fafafa;">
         <p><strong>Developed By:</strong> [Your Name]</p>
         <p><strong>Roll Number:</strong> [Your Roll Number]</p>
         <p><strong>Course:</strong> [Your Course Name]</p>
+        <p><strong>Date:</strong> 2026</p>
       </div>
     </div>
 
-    <!-- Page Break for Print -->
-    <div style="page-break-after: always;"></div>
+    <div class="page-break"></div>
 
     <h2>Table of Contents</h2>
-    <ul style="line-height: 2;">
-      <li>1. Introduction</li>
-      <li>2. Technologies Used</li>
-      <li>3. Project Architecture & Design Pattern</li>
-      <li>4. File Structure & Directory Layout</li>
-      <li>5. Detailed Module Description</li>
-      <li>6. Data Flow & State Management</li>
-      <li>7. Comprehensive Viva Q&A Guide</li>
-      <li>8. Limitations & Future Scope</li>
-      <li>9. Conclusion</li>
-    </ul>
+    <div class="toc">
+      <ul>
+        <li>1. Introduction & Architecture Overview</li>
+        <li>2. Module 1: The Login & Authentication System (index.html)</li>
+        <li>3. Module 2: The Main Dashboard (home.html)</li>
+        <li>4. Module 3: Dynamic Article Rendering (blog.html)</li>
+        <li>5. Module 4: State Hubs & Tourist Sentiment (delhi.html, etc.)</li>
+        <li>6. Module 5: User Publishing Engine (write.html)</li>
+        <li>7. Module 6: Persistent Bookmarking (saved.html)</li>
+        <li>8. Core Data Management & File Structure</li>
+      </ul>
+    </div>
 
-    <div style="page-break-after: always;"></div>
+    <div class="page-break"></div>
 
-    <h2>1. Introduction</h2>
-    <p><strong>YATRA</strong> is a premium, fully responsive front-end web application designed as an editorial India travel magazine. The primary objective of this project is to demonstrate advanced front-end web development skills without relying on a backend server or external database. By leveraging Modern JavaScript (ES6), HTML5, and CSS3, the application provides a dynamic, Single Page Application (SPA) experience.</p>
-    <p>Users can browse through 40+ curated travel stories across six distinct Indian states (Delhi, Rajasthan, Gujarat, Goa, Kerala, and Assam). The platform features an interactive article discovery engine, persistent local bookmarking, and a unique "Write a Story" module that allows users to publish their own blogs locally.</p>
-
-    <h2>2. Technologies Used</h2>
-    <ul>
-      <li><strong>HTML5:</strong> Used for semantic structuring of the web pages (using tags like <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code>, and <code>&lt;aside&gt;</code>).</li>
-      <li><strong>CSS3 (Custom Variables & Grid/Flexbox):</strong> Used for creating a responsive, editorial magazine layout. CSS Variables (<code>--primary</code>, <code>--terracotta</code>) ensure a consistent color palette across all pages.</li>
-      <li><strong>Vanilla JavaScript (ES6):</strong> Used for DOM manipulation, event handling, data filtering, and routing. No external frameworks (like React or Angular) or libraries (like jQuery) were used, strictly adhering to the syllabus constraints.</li>
-      <li><strong>Web Storage API (localStorage):</strong> Used as a client-side database to persistently store user sessions, saved bookmarks, and user-generated articles.</li>
-      <li><strong>FileReader API:</strong> Used to convert user-uploaded images into Base64 encoded strings for local storage.</li>
-    </ul>
-
-    <h2>3. Project Architecture & Design Pattern</h2>
-    <p>YATRA follows a <strong>Client-Side Rendering (CSR)</strong> approach. Since there is no backend (like Node.js/Python) or database (like MySQL/MongoDB), the data layer is handled entirely within the browser.</p>
-    <p>All 43 pre-written travel articles are stored in a massive JSON object inside <code>js/articles.js</code>. When a user clicks on a story, they are taken to <code>blog.html?id=story-name</code>. The JavaScript on that page reads the <code>id</code> parameter from the URL, looks up the data in the JSON object, and dynamically injects the HTML into the page. This eliminates the need to create 43 separate HTML files, proving a modular and scalable architecture.</p>
-
-    <div style="page-break-after: always;"></div>
-
-    <h2>4. File Structure & Directory Layout</h2>
-    <p>The workspace is organized into a logical structure separating assets, logic, and views:</p>
-    <ul>
-      <li><code>index.html</code> - The Landing/Login page featuring a full-screen background and glassmorphism login modal.</li>
-      <li><code>home.html</code> - The main dashboard featuring the Editorial Hero, Destinations Hub, and the Article Discovery archive.</li>
-      <li><code>blog.html</code> - The dynamic article template that renders individual stories based on URL parameters.</li>
-      <li><code>write.html</code> - The module allowing users to author new stories and upload cover images.</li>
-      <li><code>saved.html</code> - The user's personal bookmark dashboard.</li>
-      <li><code>delhi.html, kerala.html, etc.</code> - Dedicated State Hub pages filtering stories for specific regions.</li>
-      <li><code>js/articles.js</code> - The "Database" file containing the JSON object of all stories.</li>
-      <li><code>js/main.js</code> - Global utility scripts for navigation and interactions.</li>
-      <li><code>css/style.css</code> - The global stylesheet governing typography, colors, and responsive breakpoints.</li>
-    </ul>
-
-    <h2>5. Detailed Module Description</h2>
+    <h2>1. Introduction & Architecture Overview</h2>
+    <p><strong>YATRA</strong> is a completely static, front-end only travel magazine. Because academic guidelines prohibited the use of a Node.js/Python backend server or a SQL/MongoDB database, this project heavily relies on advanced <strong>Vanilla JavaScript (ES6)</strong> and the HTML5 <strong>Web Storage API</strong>.</p>
     
-    <h3>A. Authentication Module (Demo Mode)</h3>
-    <p>Located on <code>index.html</code>. Because this is a frontend-only project, true authentication cannot be implemented. Instead, it uses a "Demo Mode". When a user enters an email or clicks "Continue as Guest", JavaScript intercepts the form submission, prevents the default page reload, and writes a session token (e.g., <code>yatra_user: guest</code>) into <code>localStorage</code> before redirecting to the homepage.</p>
-
-    <h3>B. Article Discovery Engine</h3>
-    <p>Located on <code>home.html</code>. It features a real-time search bar and category buttons. The logic works by creating an array of all available articles. When the user types in the search box, the <code>Array.prototype.filter()</code> method checks if the search string exists in the article's title, state, or excerpt. The filtered array is then mapped into HTML template strings and injected into the DOM. This happens instantly on the client side without network latency.</p>
-
-    <h3>C. User Publishing Module (Write a Story)</h3>
-    <p>Located on <code>write.html</code>. Users can input a title, category, author name, and body text. A critical technical achievement here is image handling. The <code>&lt;input type="file"&gt;</code> triggers a <code>FileReader</code> object which converts the uploaded image into a Base64 Data URL. The entire form data is structured into a JSON object and pushed into an array called <code>yatra_user_articles</code> inside <code>localStorage</code>.</p>
-
-    <div style="page-break-after: always;"></div>
-
-    <h2>6. Data Flow & State Management</h2>
-    <p>To ensure user-generated articles appear alongside hardcoded articles, the system uses a clever merge strategy upon initialization. Inside <code>js/articles.js</code>, the script executes the following logic:</p>
-    <pre><code>
-try {
-  // Fetch hardcoded articles
-  const defaultArticles = articlesData; 
-  // Fetch user articles from LocalStorage
-  const userArticles = JSON.parse(localStorage.getItem('yatra_user_articles')) || {};
-  // Merge both into the global window object
-  window.articlesData = { ...defaultArticles, ...userArticles };
-} catch(e) {
-  console.error("Data load failed", e);
-}
-    </code></pre>
-    <p>By attaching the merged object to the global <code>window</code> object, every subsequent script on any HTML page has immediate, synchronous access to the complete database.</p>
-
-    <h2>7. Comprehensive Viva Q&A Guide</h2>
-    
-    <div class="qa-box">
-      <div class="qa-q">1. How do you pass data between different HTML pages without a backend?</div>
-      <div class="qa-a">We use two primary methods. First, we use <strong>URL Query Parameters</strong> (like <code>blog.html?id=delhi</code>). The receiving page parses this URL using <code>new URLSearchParams(window.location.search)</code> to know what data to render. Second, we use the Browser's <strong>localStorage API</strong> to save persistent data (like Bookmarks) across sessions.</div>
+    <div class="feature-box">
+      <div class="feature-title">The "No-Backend" Secret</div>
+      All user actions—logging in, saving bookmarks, writing new blogs, and uploading images—are processed instantly in the browser and stored locally on the user's hard drive using <code>localStorage</code>. The website merges this local data with a hardcoded JSON file upon page load, creating the illusion of a fully functional, globally connected database.
     </div>
 
-    <div class="qa-box">
-      <div class="qa-q">2. If there is no database, where do the articles come from?</div>
-      <div class="qa-a">The pre-written articles are stored as a massive JavaScript Object (JSON) in <code>js/articles.js</code>. This script is loaded on every page, attaching the data to the global <code>window.articlesData</code> object so the DOM can read it instantly without an HTTP fetch request.</div>
-    </div>
+    <h2>2. Module 1: The Login & Authentication System (index.html)</h2>
+    <p>The entry point of the website. It features a full-screen, high-resolution static background of a Rajasthan fort, overlaid with a frosted-glass ("glassmorphism") modal box.</p>
 
-    <div class="qa-box">
-      <div class="qa-q">3. How do you upload and display images in the "Write a Story" feature without a server?</div>
-      <div class="qa-a">We utilize the HTML5 <strong>FileReader API</strong>. It reads the user's uploaded file locally and converts it into a "Base64 Data URL" (a long string of text representing the image). We save this string inside <code>localStorage</code> and use it directly inside the <code>src</code> attribute of an image tag.</div>
-    </div>
-
-    <div class="qa-box">
-      <div class="qa-q">4. Why did you use CSS Grid vs Flexbox?</div>
-      <div class="qa-a">Both are utilized for their specific strengths. <strong>Flexbox</strong> is used for 1-dimensional layouts (like aligning items in the navigation bar or side-by-side buttons). <strong>CSS Grid</strong> is used for 2-dimensional layouts (like the Homepage Article Feed or the Split-screen layout) where we need strict rows and columns that wrap cleanly.</div>
-    </div>
-
-    <div class="qa-box">
-      <div class="qa-q">5. What is an IIFE and did you use it?</div>
-      <div class="qa-a">An IIFE (Immediately Invoked Function Expression) is a JavaScript function that runs as soon as it is defined. We used it in <code>blog.html</code> <code>(() => { ... })();</code> to encapsulate the article rendering logic so our variables don't pollute the global scope.</div>
-    </div>
-
-    <div class="qa-box">
-      <div class="qa-q">6. How did you handle errors if an article ID doesn't exist?</div>
-      <div class="qa-a">In <code>blog.html</code>, after reading the ID from the URL, we check if <code>window.articlesData[id]</code> exists. If it returns undefined, we intercept the rendering process and update the DOM's <code>innerHTML</code> to display a friendly "404 - Story Not Found" message instead of throwing a console error.</div>
-    </div>
-    
-    <div class="qa-box">
-      <div class="qa-q">7. How does the Search functionality work technically?</div>
-      <div class="qa-a">We attach an <code>input</code> event listener to the search bar. Whenever the user types, it reads the <code>.value</code>, converts it to lowercase, and runs the <code>.filter()</code> array method against the articles array. It checks if the title or excerpt <code>.includes()</code> the search string, and instantly re-renders the DOM with the matching results.</div>
-    </div>
-
-    <h2>8. Limitations & Future Scope</h2>
+    <h3>Every Feature Explained:</h3>
     <ul>
-      <li><strong>Limitation:</strong> <code>localStorage</code> has a strict size limit (usually ~5MB per domain). If a user uploads too many high-resolution Base64 images, the storage will crash.</li>
-      <li><strong>Limitation:</strong> Because there is no backend, bookmarks and written stories are tied to the specific browser and device. They cannot be accessed from a different computer.</li>
-      <li><strong>Future Scope:</strong> In the next semester, this project can be upgraded by connecting it to a Node.js/Express backend and a MongoDB database. This would allow for real user authentication (JWT), infinite image storage (AWS S3), and global sharing of user-written blogs.</li>
+      <li><strong>Email & Password Fields:</strong> Standard HTML5 required inputs.</li>
+      <li><strong>Password Visibility Toggle (👁):</strong> A JavaScript event listener attached to the eye icon. When clicked, it toggles the password input's <code>type</code> attribute from <code>"password"</code> to <code>"text"</code> (and vice versa), allowing the user to reveal what they typed.</li>
+      <li><strong>Log In Button:</strong> When clicked, JavaScript intercepts the form submission (using <code>e.preventDefault()</code>). Instead of sending the password to a server, it takes the email, saves it into <code>localStorage.setItem('yatra_user', email)</code>, and redirects the browser to <code>home.html</code>.</li>
+      <li><strong>Social Login & Guest Buttons:</strong> These are demo buttons. Clicking them triggers an identical logic flow to the main Login button, but they hardcode the username as <code>"google_user"</code>, <code>"microsoft_user"</code>, or <code>"guest_user"</code> before redirecting.</li>
     </ul>
 
-    <h2>9. Conclusion</h2>
-    <p>The YATRA project successfully demonstrates that highly interactive, data-driven web applications can be constructed using core web technologies (HTML, CSS, JS). By implementing client-side routing, local state management, and real-time DOM manipulation, the project fulfills all academic requirements while delivering a production-grade user interface.</p>
+    <div class="page-break"></div>
+
+    <h2>3. Module 2: The Main Dashboard (home.html)</h2>
+    <p>The homepage acts as the central hub. It contains a full-viewport hero image, a Navigation Bar, a Destination Grid, and an interactive Article Discovery Archive.</p>
+
+    <h3>Every Feature Explained:</h3>
+    <ul>
+      <li><strong>Navigation Bar (Write & Saved):</strong> Fixed at the top of the screen. As the user scrolls down, a JavaScript scroll listener detects the window position and changes the navbar background from transparent to solid white to ensure the links remain readable over the text.</li>
+      <li><strong>Destinations Grid (The 6 Cards):</strong> Six image cards representing the 6 states (Delhi, Goa, Rajasthan, etc.). These are direct hyperlink tags (<code>&lt;a&gt;</code>) that transport the user to the respective state HTML page.</li>
+      <li><strong>The Archive Search Bar:</strong> A dynamic text input. An <code>'input'</code> event listener watches every keystroke. It reads the text, converts it to lowercase, and uses the <code>Array.filter()</code> method to search through every article's title, excerpt, and state in the database, instantly re-rendering the cards on the screen without reloading the page.</li>
+      <li><strong>Category Filters (Heritage, Nature, etc.):</strong> A row of buttons. Clicking a button changes a JavaScript variable (<code>currentCat</code>) and triggers the same filtering function mentioned above, showing only articles matching that category.</li>
+      <li><strong>Sorting Dropdown:</strong> Contains "Latest First" and "A to Z". Choosing "A to Z" runs the JavaScript <code>.sort((a,b) => a.title.localeCompare(b.title))</code> method on the array before rendering the cards.</li>
+    </ul>
+
+    <h2>4. Module 3: Dynamic Article Rendering (blog.html)</h2>
+    <p>Instead of creating 50 different HTML files for 50 different stories, there is only one file: <code>blog.html</code>. This is the core of the Single Page Application (SPA) design pattern.</p>
+
+    <h3>Every Feature Explained:</h3>
+    <ul>
+      <li><strong>URL Query Parsing:</strong> When a user clicks a story on the homepage, the link looks like this: <code>blog.html?id=goa-beaches</code>. The JavaScript on <code>blog.html</code> uses <code>new URLSearchParams(window.location.search)</code> to extract the word "goa-beaches".</li>
+      <li><strong>Dynamic Injection:</strong> The script looks up "goa-beaches" in the global <code>window.articlesData</code> database. It extracts the title, image URL, and text paragraphs, and uses <code>innerHTML</code> to inject them into the blank HTML template.</li>
+      <li><strong>Not Found Error Handling:</strong> If a user types a fake ID into the URL bar, the script detects that the data is <code>undefined</code> and immediately replaces the screen with a graceful "Story not found" message, avoiding a crash.</li>
+      <li><strong>"Save to Yatra" Button:</strong> Located in the sidebar. When clicked, it grabs the current article ID and pushes it into an array called <code>yatra_saved_posts</code> stored in the browser's <code>localStorage</code>. The button immediately turns orange and changes text to "Saved!"</li>
+    </ul>
+
+    <div class="page-break"></div>
+
+    <h2>5. Module 4: State Hubs & Tourist Sentiment (delhi.html, etc.)</h2>
+    <p>Each of the 6 states has its own dedicated page. These pages feature a horizontal feed of stories specifically about that state.</p>
+
+    <h3>Every Feature Explained:</h3>
+    <ul>
+      <li><strong>Auto-Filtering Feed:</strong> Similar to the homepage, but the JavaScript is hardcoded to only filter and display articles where <code>article.state === "Delhi"</code>.</li>
+      <li><strong>Tourist Sentiment Dashboard:</strong> A complex data visualization module. It fetches mock data from <code>data/sentiment.json</code> and uses the <strong>Chart.js</strong> library to draw a responsive, horizontal bar chart showing the percentage of Positive, Neutral, and Negative tourist reviews for that state.</li>
+      <li><strong>Write a Review Form:</strong> A standard HTML form at the bottom of the page. Because there is no backend server to process form emails, submitting this form simply triggers a JavaScript <code>alert()</code> thanking the user, and clears the input fields.</li>
+    </ul>
+
+    <h2>6. Module 5: User Publishing Engine (write.html)</h2>
+    <p>The most technically advanced feature of the project. It allows visitors to author their own travel blogs and publish them directly to the website locally.</p>
+
+    <h3>Every Feature Explained:</h3>
+    <ul>
+      <li><strong>Text Inputs & Dropdowns:</strong> Standard fields for Title, Author, Excerpt, State, and Category.</li>
+      <li><strong>Image Upload & FileReader API:</strong> When a user clicks the dashed box and selects a JPEG/PNG from their computer, a JavaScript <code>FileReader</code> object reads the binary file and converts it into a "Base64 Data URL". This translates the image into a massive string of plain text characters, which allows it to be saved directly into local browser memory without needing an Amazon S3 server.</li>
+      <li><strong>Publish Button:</strong> When clicked, the script bundles all the text inputs and the Base64 image string into a new JSON object. It assigns it a unique ID (e.g., <code>user-12345-my-trip</code>), saves it to <code>localStorage</code>, and redirects the user to their newly created <code>blog.html?id=user-...</code> page.</li>
+    </ul>
+
+    <h2>7. Module 6: Persistent Bookmarking (saved.html)</h2>
+    <p>The user's personal dashboard for stories they want to read later.</p>
+
+    <h3>Every Feature Explained:</h3>
+    <ul>
+      <li><strong>Grid Rendering:</strong> The script opens <code>localStorage</code>, retrieves the array of saved IDs, loops through them, looks up their data in the master database, and renders them as cards.</li>
+      <li><strong>Empty State:</strong> If the array is empty, it displays a dashed box saying "You haven't saved any stories yet," prompting the user to explore the site.</li>
+      <li><strong>Remove / Unsave:</strong> Since the user has complete control over their local data, clicking the heart/save icon on an already saved article will filter that ID out of the <code>localStorage</code> array, permanently removing it from the Saved page.</li>
+    </ul>
+
+    <div class="page-break"></div>
+
+    <h2>8. Core Data Management & File Structure</h2>
+    <p>To make the user-published blogs appear alongside the professional YATRA blogs, the system relies on a seamless data-merging pipeline upon every page load.</p>
+
+    <div class="feature-box">
+      <div class="feature-title">The Data Merge Pipeline (js/articles.js)</div>
+      At the bottom of the database file, the following JavaScript executes instantly on every page load:<br><br>
+      <code>const userArticles = JSON.parse(localStorage.getItem('yatra_user_articles')) || {};</code><br>
+      <code>window.articlesData = { ...articlesData, ...userArticles };</code><br><br>
+      This combines the 43 hardcoded JSON articles with any custom articles the user created in <code>write.html</code>. Because this combined object is assigned to the global <code>window</code> scope, the Search Bar, the State Pages, and the Saved Page will automatically include the user's custom blogs seamlessly.
+    </div>
+
+    <h3>Complete File Directory:</h3>
+    <ul>
+      <li><code>index.html</code> (Login)</li>
+      <li><code>home.html</code> (Main Dashboard & Search)</li>
+      <li><code>blog.html</code> (Dynamic Article Reader)</li>
+      <li><code>write.html</code> (Blogging Engine)</li>
+      <li><code>saved.html</code> (Bookmark Dashboard)</li>
+      <li><code>delhi.html</code>, <code>goa.html</code>, <code>assam.html</code>, <code>kerala.html</code>, <code>gujarat.html</code>, <code>rajasthan.html</code> (State Hubs)</li>
+      <li><code>js/articles.js</code> (Master Database & Merging logic)</li>
+      <li><code>js/main.js</code> (Global Nav & Bookmark logic)</li>
+      <li><code>js/sentiment.js</code> & <code>data/sentiment.json</code> (Chart.js logic for State Pages)</li>
+      <li><code>css/style.css</code> (Global static stylesheets, stripped of all animations for maximum stability)</li>
+    </ul>
+    
+    <br><br>
+    <p style="text-align: center; color: var(--muted); margin-top: 60px;">--- End of Documentation ---</p>
 
   </div>
   
   <script>
-    // Automatically trigger print dialog when opened (optional, user can cancel)
+    // Automatically trigger print dialog when opened (optional)
     // window.onload = () => window.print();
   </script>
 </body>
